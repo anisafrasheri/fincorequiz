@@ -18,9 +18,10 @@ const questions = [
 
 export default function QuizPage() {
     const [currentQuestion, setCurrentQuestion] = useState(0);
-    const [answers, setAnswers] = useState<string[]>([]);
+    const [answers, setAnswers] = useState([]);
 
-    const handleAnswer = (answer: string) => {
+    const handleAnswer = (answer) => {
+
         const newAnswers = [...answers, answer];
         setAnswers(newAnswers);
 
@@ -33,7 +34,7 @@ export default function QuizPage() {
         }
     };
 
-    const determineChatbotType = (answers: string[]) => {
+    const determineChatbotType = (answers) => {
         if (answers.includes("Invest wisely")) return "investor";
         if (answers.includes("Save money")) return "saver";
         if (answers.includes("Track spending")) return "tracker";
